@@ -11,13 +11,15 @@ const App = () => {
 		e.preventDefault();
 		let factorial = 1;
 		let num = parseInt(state.number);
+		let str = '';
 		if (isNaN(num)) return null;
 
 		for (let i = 1; i <= num; i++) {
 			factorial *= i;
 		}
+		str = factorial.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 
-		setFactorial(`Factorial of ${num}! is: ${factorial}`);
+		setFactorial(`Factorial of ${num}! is: ${str}`);
 	};
 
 	return (
